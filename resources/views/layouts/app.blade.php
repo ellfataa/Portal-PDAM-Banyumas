@@ -19,7 +19,6 @@
 
         <!-- Leaflet JS -->
         <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -39,5 +38,22 @@
                 {{ $slot }}
             </main>
         </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                @if (session('success'))
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Berhasil!',
+                        text: '{{ session('success') }}',
+                        showConfirmButton: false,
+                        timer: 2500, // Otomatis hilang dalam 2.5 detik
+                        timerProgressBar: true,
+                        backdrop: `rgba(0,0,123,0.1)`
+                    });
+                @endif
+            });
+        </script>
     </body>
 </html>

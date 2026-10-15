@@ -29,11 +29,9 @@ class RegisteredUserController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => $validated['password'],
-            'role' => 'user',
+            'role' => 'pelanggan',
         ]);
 
-        Auth::login($user);
-
-        return redirect()->route('dashboard');
+        return redirect()->route('login')->with('success', 'Akun berhasil dibuat! Silakan masuk.');
     }
 }

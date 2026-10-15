@@ -10,7 +10,7 @@ use App\Models\Kelurahan;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::get('/dashboard', function () {
     $user = Auth::user();
@@ -60,7 +60,7 @@ Route::middleware('auth')->group(function () {
     // =====================
     // USER (Pelanggan)
     // =====================
-    Route::middleware('role:user')->group(function () {
+    Route::middleware('role:pelanggan')->group(function () { // Ubah 'role:user' menjadi 'role:pelanggan'
         Route::get('/user/home', fn() => view('user.home'))->name('user.home');
 
         // Pendaftaran Pelanggan
@@ -68,8 +68,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/pendaftaran', [PendaftaranController::class, 'store'])->name('pendaftaran.store');
 
         // Pembayaran
-        // Route::get('/pembayaran', [PembayaranController::class, 'create'])->name('pembayaran.create'); // Dihapus
-        // Route::post('/pembayaran', [PembayaranController::class, 'store'])->name('pembayaran.store'); // Dihapus
         Route::get('/pembayaran/cek', [PembayaranController::class, 'cek'])->name('pembayaran.cek');
         Route::get('/pembayaran/riwayat', [PembayaranController::class, 'riwayat'])->name('pembayaran.riwayat');
 
@@ -85,4 +83,3 @@ Route::middleware('auth')->group(function () {
 
 // Auth Routes dari Laravel Breeze
 require __DIR__ . '/auth.php';
-

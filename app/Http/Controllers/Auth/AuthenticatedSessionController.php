@@ -21,7 +21,10 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        $user = Auth::user();
+        $tujuan = $user->role === 'admin' ? route('admin.dashboard') : route('user.home');
+
+        return redirect()->intended($tujuan)->with('success', 'Selamat datang kembali, ' . $user->name . '!');
     }
 
     public function destroy(Request $request): RedirectResponse
@@ -30,6 +33,6 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/')->with('success', 'Anda telah berhasil keluar dari sistem.');
     }
 }
