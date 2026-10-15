@@ -15,7 +15,7 @@
             <h2 class="text-3xl font-extrabold text-center text-[#1746A2] mb-6">Selamat Datang Kembali!</h2>
 
             <div class="mb-4 text-left">
-                <a href="{{ url('/') }}" class="inline-flex items-center text-sm font-semibold text-gray-400 hover:text-[#1746A2] transition duration-300">
+                <a href="{{ route('welcome') }}" class="inline-flex items-center text-sm font-semibold text-gray-400 hover:text-[#1746A2] transition duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                     </svg>
@@ -23,7 +23,7 @@
                 </a>
             </div>
 
-            <form method="POST" action="{{ url('/login') }}">
+            <form method="POST" action="{{ route('login') }}">
                 @csrf
 
                 <div class="mb-4">
@@ -36,19 +36,6 @@
                     <input id="password" class="block w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl focus:border-[#5F9DF7] focus:bg-white focus:ring focus:ring-[#5F9DF7] focus:ring-opacity-20 transition duration-300" type="password" name="password" required autocomplete="current-password" />
                 </div>
 
-                <div class="flex justify-between items-center mb-6">
-                    <label for="remember_me" class="inline-flex items-center cursor-pointer">
-                        <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-[#5F9DF7] shadow-sm focus:ring-[#5F9DF7]" name="remember">
-                        <span class="ms-2 text-sm text-gray-600 font-medium">Ingat Saya</span>
-                    </label>
-
-                    @if (Route::has('password.request'))
-                        <a class="text-sm text-[#1746A2] hover:text-[#5F9DF7] font-semibold transition duration-300" href="{{ url('/forgot-password') }}">
-                            Lupa Password?
-                        </a>
-                    @endif
-                </div>
-
                 <button type="submit" class="w-full flex justify-center items-center bg-[#FF731D] hover:bg-[#e06518] text-white font-bold py-3 rounded-xl shadow-lg shadow-orange-200 transition duration-300 transform hover:-translate-y-0.5">
                     Masuk Sekarang
                 </button>
@@ -57,7 +44,7 @@
             <div class="mt-6 text-center pt-4 border-t border-gray-100">
                 <p class="text-sm text-gray-500 font-medium">
                     Belum punya akun?
-                    <a href="{{ url('/register') }}" class="text-[#5F9DF7] hover:text-[#1746A2] font-bold transition duration-300">Daftar di sini</a>
+                    <a href="{{ route('register') }}" class="text-[#5F9DF7] hover:text-[#1746A2] font-bold transition duration-300">Daftar di sini</a>
                 </p>
             </div>
         </div>

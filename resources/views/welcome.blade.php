@@ -22,11 +22,11 @@
                 <nav class="flex items-center space-x-6 text-base font-semibold">
                     @if (Route::has('login'))
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="bg-[#FF731D] hover:bg-[#e06518] text-white px-6 py-2 rounded-xl transition duration-300 shadow-md">Dashboard</a>
+                            <a href="{{ route('dashboard') }}" class="bg-[#FF731D] hover:bg-[#e06518] text-white px-6 py-2 rounded-xl transition duration-300 shadow-md">Dashboard</a>
                         @else
-                            <a href="{{ url('/login') }}" class="text-[#1746A2] hover:text-[#5F9DF7] px-4 py-2 transition duration-300">Masuk</a>
+                            <a href="{{ route('login') }}" class="text-[#1746A2] hover:text-[#5F9DF7] px-4 py-2 transition duration-300">Masuk</a>
                             @if (Route::has('register'))
-                                <a href="{{ url('/register') }}" class="bg-[#5F9DF7] hover:bg-[#4a84d4] text-white px-6 py-2 rounded-xl transition duration-300 shadow-md">Daftar</a>
+                                <a href="{{ route('register') }}" class="bg-[#5F9DF7] hover:bg-[#4a84d4] text-white px-6 py-2 rounded-xl transition duration-300 shadow-md">Daftar</a>
                             @endif
                         @endauth
                     @endif
@@ -49,10 +49,10 @@
                         Nikmati kemudahan layanan PDAM Banyumas. Bayar tagihan, cek riwayat pemakaian, dan dapatkan informasi terbaru langsung dari perangkat Anda tanpa perlu antre.
                     </p>
                     <div class="flex items-center gap-6">
-                        <a href="{{ url('/login') }}" class="bg-[#FF731D] hover:bg-[#e06518] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-orange-200 transition duration-300 transform hover:-translate-y-1">
+                        <a href="{{ route('login') }}" class="bg-[#FF731D] hover:bg-[#e06518] text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-orange-200 transition duration-300 transform hover:-translate-y-1">
                             Masuk Sekarang
                         </a>
-                        <a href="{{ url('/register') }}" class="bg-white text-[#1746A2] border-2 border-[#1746A2] hover:bg-[#1746A2] hover:text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition duration-300 transform hover:-translate-y-1">
+                        <a href="{{ route('register') }}" class="bg-white text-[#1746A2] border-2 border-[#1746A2] hover:bg-[#1746A2] hover:text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg transition duration-300 transform hover:-translate-y-1">
                             Daftar Akun
                         </a>
                     </div>

@@ -13,6 +13,8 @@ Route::get('/', function () {
 })->name('welcome');
 
 Route::get('/dashboard', function () {
+    session()->reflash();
+
     $user = Auth::user();
     return $user && $user->role === 'admin'
         ? redirect()->route('admin.dashboard')
